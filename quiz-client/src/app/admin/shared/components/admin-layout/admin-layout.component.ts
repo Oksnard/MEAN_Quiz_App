@@ -11,6 +11,6 @@ export class AdminLayoutComponent {
 
 	logout($event: MouseEvent): void {
 		$event.preventDefault()
-		this.router.navigate(['/admin', 'login'])
+		this.router.navigate(['/', 'login'])
 	}
 }

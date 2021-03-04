@@ -4,15 +4,30 @@ import { NgModule } from '@angular/core'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component'
-import { HomePageComponent } from './home-page/home-page.component'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { SharedModule } from './shared/shared.module'
+import { LoginPageComponent } from './login-page/login-page.component'
+import { CommonModule } from '@angular/common'
+import { MatCardModule } from '@angular/material/card'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { CategoriesPageComponent } from './categories-page/categories-page.component'
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { QuizPageComponent } from './quiz-page/quiz-page.component'
 
 @NgModule({
-	declarations: [AppComponent, MainLayoutComponent, HomePageComponent],
+	declarations: [
+		AppComponent,
+		MainLayoutComponent,
+		LoginPageComponent,
+		CategoriesPageComponent,
+		QuizPageComponent
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -20,7 +35,16 @@ import { SharedModule } from './shared/shared.module'
 		MatIconModule,
 		MatButtonModule,
 		BrowserAnimationsModule,
-		SharedModule
+		SharedModule,
+		CommonModule,
+		MatCardModule,
+		MatFormFieldModule,
+		MatInputModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatSidenavModule,
+		MatRippleModule,
+		MatNativeDateModule
 	],
 	bootstrap: [AppComponent]
 })

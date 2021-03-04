@@ -1,0 +1,32 @@
+<div class="categories-container">
+	<h2>Укажите направление и технологию</h2>
+	<div class="direction">
+		<div
+			class="ripple-container mat-elevation-z4"
+			matRipple
+			(click)="setDirection('front')"
+		>
+			Frontend forever!
+		</div>
+		<div
+			class="ripple-container mat-elevation-z4"
+			matRipple
+			(click)="setDirection('back')"
+		>
+			Backend is the best!
+		</div>
+	</div>
+
+	<hr />
+
+	<div class="categories" *ngIf="categories.length > 0">
+		<div
+			*ngFor="let category of categories"
+			[ngStyle]="{background: 'url(' + category.image + ')'}"
+			class="ripple-container mat-elevation-z4"
+			matRipple
+			(click)="setCategory(category.title)"
+		>
+		</div>
+	</div>
+</div>
