@@ -19,7 +19,7 @@ export class CategoriesService {
   }
 
   async create(categoryDto: CategoryDto): Promise<Category> {
-    const newCategory = new this.categoryModel(CategoryDto);
+    const newCategory = new this.categoryModel(categoryDto);
     return newCategory.save();
   }
 
@@ -28,6 +28,9 @@ export class CategoriesService {
   }
 
   async update(id: string, categoryDto: CategoryDto): Promise<Category> {
-    return this.categoryModel.findByIdAndUpdate(id, categoryDto, { new: true });
+    return this.categoryModel.findByIdAndUpdate(id, categoryDto, {
+      new: true,
+      useFindAndModify: false,
+    });
   }
 }
