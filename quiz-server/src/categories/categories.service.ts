@@ -24,7 +24,9 @@ export class CategoriesService {
   }
 
   async remove(id: string): Promise<Category> {
-    return this.categoryModel.findByIdAndRemove(id);
+    return this.categoryModel.findByIdAndRemove(id, {
+      useFindAndModify: false,
+    });
   }
 
   async update(id: string, categoryDto: CategoryDto): Promise<Category> {

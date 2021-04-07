@@ -12,7 +12,7 @@ import { CategoriesModule } from './categories/categories.module';
     UsersModule,
     CategoriesModule,
     MongooseModule.forRoot(
-      `mongodb+srv://oksnard:iwrest12@cluster0.j5fsz.mongodb.net/myFirstDatabase`,
+      `mongodb+srv://oksnard:iwrest12@cluster0.j5fsz.mongodb.net/Quiz`,
     ),
   ],
   controllers: [AppController],

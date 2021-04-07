@@ -5,10 +5,10 @@ export type CategoryDocument = Category & Document;
 
 @Schema()
 export class Category {
-  @Prop()
+  @Prop({ required: true })
   title: string;
 
-  @Prop()
+  @Prop({ required: true })
   questions: Array<any>;
 }
 

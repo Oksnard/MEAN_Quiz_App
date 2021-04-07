@@ -1,14 +1,14 @@
 import {
-  Body,
   Controller,
-  Delete,
-  Get,
   Header,
-  HttpCode,
-  HttpStatus,
+  Body,
   Param,
   Post,
   Put,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { Category } from './schemas/category.schema';
@@ -32,6 +32,7 @@ export class CategoriesController {
   @HttpCode(HttpStatus.CREATED)
   @Header('Cache-Control', 'none')
   create(@Body() categoryDto: CategoryDto) {
+    console.warn(categoryDto);
     return this.categoriesService.create(categoryDto);
   }
 
