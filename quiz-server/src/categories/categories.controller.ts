@@ -32,7 +32,6 @@ export class CategoriesController {
   @HttpCode(HttpStatus.CREATED)
   @Header('Cache-Control', 'none')
   create(@Body() categoryDto: CategoryDto) {
-    console.warn(categoryDto);
     return this.categoriesService.create(categoryDto);
   }
 
