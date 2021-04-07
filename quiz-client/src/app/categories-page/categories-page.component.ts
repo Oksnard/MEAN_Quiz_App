@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http'
 export class CategoriesPageComponent implements OnInit {
 	constructor(private router: Router, private http: HttpClient) {}
 
-	ngOnInit() {
+	ngOnInit(): void {
 		this.http
 			.get('http://localhost:3000/categories')
 			.subscribe((res: Array<any>) => {
@@ -19,6 +19,7 @@ export class CategoriesPageComponent implements OnInit {
 			})
 	}
 
+	category = ''
 	categories: Array<Category> = []
 	frontCategories: Array<Category> = [
 		// {
@@ -54,7 +55,6 @@ export class CategoriesPageComponent implements OnInit {
 	// 		id: 2
 	// 	}
 	// ]
-	category: string = ''
 
 	// setDirection(direction: string): void {
 	// 	direction === 'front'
