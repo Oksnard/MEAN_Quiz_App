@@ -5,6 +5,7 @@ import { QuizPageComponent } from './quiz-page/quiz-page.component'
 import { LoginPageComponent } from './login-page/login-page.component'
 import { AuthService } from './shared/services/auth.service'
 import { CategoriesPageComponent } from './categories-page/categories-page.component'
+import { CategoryPageComponent } from './category-page/category-page.component'
 
 const routes: Routes = [
 	{
@@ -14,7 +15,8 @@ const routes: Routes = [
 			// { path: '', redirectTo: '/login', pathMatch: 'full' },
 			{ path: 'login', component: LoginPageComponent },
 			{ path: '', component: QuizPageComponent },
-			{ path: 'categories', component: CategoriesPageComponent }
+			{ path: 'categories', component: CategoriesPageComponent },
+			{ path: 'category/:id', component: CategoryPageComponent }
 		]
 	},
 	{

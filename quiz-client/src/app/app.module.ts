@@ -18,7 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { CategoriesPageComponent } from './categories-page/categories-page.component'
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-import { QuizPageComponent } from './quiz-page/quiz-page.component'
+import { QuizPageComponent } from './quiz-page/quiz-page.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment'
 
 @NgModule({
 	declarations: [
@@ -26,7 +29,8 @@ import { QuizPageComponent } from './quiz-page/quiz-page.component'
 		MainLayoutComponent,
 		LoginPageComponent,
 		CategoriesPageComponent,
-		QuizPageComponent
+		QuizPageComponent,
+		CategoryPageComponent
 	],
 	imports: [
 		BrowserModule,
@@ -44,7 +48,8 @@ import { QuizPageComponent } from './quiz-page/quiz-page.component'
 		ReactiveFormsModule,
 		MatSidenavModule,
 		MatRippleModule,
-		MatNativeDateModule
+		MatNativeDateModule,
+		environment.production ? [] : AkitaNgDevtools.forRoot()
 	],
 	bootstrap: [AppComponent]
 })

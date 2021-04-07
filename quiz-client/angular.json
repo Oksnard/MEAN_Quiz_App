@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "quiz-client"
+  "defaultProject": "quiz-client",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }

@@ -8,7 +8,7 @@ export class Category {
   @Prop({ required: true })
   title: string;
 
-  @Prop({ required: true })
+  @Prop()
   questions: Array<any>;
 }
 
