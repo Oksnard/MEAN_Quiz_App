@@ -5,7 +5,7 @@ import { Category } from './category.model'
 export type CategoriesState = EntityState<Category>
 
 @Injectable({ providedIn: 'root' })
-@StoreConfig({ name: 'categories' })
+@StoreConfig({ name: 'categories', idKey: '_id' })
 export class CategoriesStore extends EntityStore<CategoriesState> {
 	constructor() {
 		super()

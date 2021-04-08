@@ -16,7 +16,6 @@ export class CategoriesService {
 	get(): Observable<Category[]> {
 		return this.http.get<Category[]>('http://localhost:3000/categories').pipe(
 			tap((entities) => {
-				console.log(entities)
 				this.categoriesStore.set(entities)
 			})
 		)

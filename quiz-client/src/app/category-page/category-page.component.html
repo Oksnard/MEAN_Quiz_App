@@ -1,1 +1,6 @@
-<p>category-page works!</p>
+<div
+  *ngIf="category$ | async as category"
+  class="category-page"
+>
+  {{category.title}}
+</div>

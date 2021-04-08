@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { CategoriesQuery, Category } from '../state/categories'
 import { Observable } from 'rxjs'
 
@@ -11,15 +11,17 @@ import { Observable } from 'rxjs'
 export class CategoryPageComponent implements OnInit {
 	constructor(
 		private router: Router,
+		private route: ActivatedRoute,
 		protected categoriesQuery: CategoriesQuery
 	) {}
 
-	category$: Observable<Category>
+	category$: Observable<Category> | any
 
 	ngOnInit(): void {
-		this.category$ = this.categoriesQuery.selectEntity(({ title }) => {
-			console.log(title)
-			this.router.url.split('/')[2]
-		})
+		let id = this.route.snapshot.paramMap.get('id')
+		id = id.charAt(0).toUpperCase() + id.slice(1)
+		this.category$ = this.categoriesQuery.selectEntity(
+			({ title }) => title === id
+		)
 	}
 }
