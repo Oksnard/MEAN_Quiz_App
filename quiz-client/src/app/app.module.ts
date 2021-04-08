@@ -17,10 +17,10 @@ import { MatInputModule } from '@angular/material/input'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { CategoriesPageComponent } from './categories-page/categories-page.component'
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-import { QuizPageComponent } from './quiz-page/quiz-page.component';
-import { CategoryPageComponent } from './category-page/category-page.component';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core'
+import { QuizPageComponent } from './quiz-page/quiz-page.component'
+import { CategoryPageComponent } from './category-page/category-page.component'
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools'
 import { environment } from '../environments/environment'
 
 @NgModule({

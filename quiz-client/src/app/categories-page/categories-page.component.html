@@ -19,10 +19,10 @@
 
 	<hr />
 
-	<div class="categories" *ngIf="categories.length > 0">
+	<div class="categories" *ngIf="(categories$ | async).length > 0">
     <a
       [routerLink]="['/category', category.title.toLowerCase()]"
-      *ngFor="let category of categories"
+      *ngFor="let category of categories$ | async"
       class="category-link"
     >
       <div
