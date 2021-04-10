@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common'
 import { MatCardModule } from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { CategoriesPageComponent } from './categories-page/categories-page.component'
@@ -22,6 +23,7 @@ import { QuizPageComponent } from './quiz-page/quiz-page.component'
 import { CategoryPageComponent } from './category-page/category-page.component'
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools'
 import { environment } from '../environments/environment'
+import { AuthGuard } from './shared/services/auth.guard'
 
 @NgModule({
 	declarations: [
@@ -44,6 +46,7 @@ import { environment } from '../environments/environment'
 		MatCardModule,
 		MatFormFieldModule,
 		MatInputModule,
+		MatSnackBarModule,
 		FormsModule,
 		ReactiveFormsModule,
 		MatSidenavModule,
@@ -51,6 +54,7 @@ import { environment } from '../environments/environment'
 		MatNativeDateModule,
 		environment.production ? [] : AkitaNgDevtools.forRoot()
 	],
+	providers: [AuthGuard],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -5,7 +5,7 @@
     </button>
     <span>Quiz-It!</span>
     <span class="spacer"></span>
-    <button mat-icon-button>
+    <button *ngIf="auth.isAuth()" mat-icon-button>
       <mat-icon>login</mat-icon>
     </button>
   </mat-toolbar>

@@ -6,17 +6,26 @@ import { LoginPageComponent } from './login-page/login-page.component'
 import { AuthService } from './shared/services/auth.service'
 import { CategoriesPageComponent } from './categories-page/categories-page.component'
 import { CategoryPageComponent } from './category-page/category-page.component'
+import { AuthGuard } from './shared/services/auth.guard'
 
 const routes: Routes = [
 	{
 		path: '',
 		component: MainLayoutComponent,
 		children: [
-			// { path: '', redirectTo: '/login', pathMatch: 'full' },
+			{ path: '', redirectTo: '/', pathMatch: 'full' },
 			{ path: 'login', component: LoginPageComponent },
-			{ path: '', component: QuizPageComponent },
-			{ path: 'categories', component: CategoriesPageComponent },
-			{ path: 'category/:id', component: CategoryPageComponent }
+			{ path: '', component: QuizPageComponent, canActivate: [AuthGuard] },
+			{
+				path: 'categories',
+				component: CategoriesPageComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: 'category/:id',
+				component: CategoryPageComponent,
+				canActivate: [AuthGuard]
+			}
 		]
 	},
 	{

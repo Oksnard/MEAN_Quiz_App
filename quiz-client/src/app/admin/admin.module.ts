@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { SharedModule } from '../shared/shared.module'
+import { AuthGuard } from '../shared/services/auth.guard'
 
 @NgModule({
 	declarations: [AdminLayoutComponent, DashboardPageComponent],
@@ -22,7 +23,13 @@ import { SharedModule } from '../shared/shared.module'
 			{
 				path: '',
 				component: AdminLayoutComponent,
-				children: [{ path: 'dashboard', component: DashboardPageComponent }]
+				children: [
+					{
+						path: 'dashboard',
+						component: DashboardPageComponent,
+						canActivate: [AuthGuard]
+					}
+				]
 			}
 		])
 	],

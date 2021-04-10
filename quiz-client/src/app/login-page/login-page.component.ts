@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Params, Router } from '@angular/router'
 import { User } from '../shared/interfaces'
 import { AuthService } from '../shared/services/auth.service'
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
 	selector: 'app-login-page',
@@ -10,12 +11,28 @@ import { AuthService } from '../shared/services/auth.service'
 	styleUrls: ['./login-page.component.styl']
 })
 export class LoginPageComponent implements OnInit {
-	constructor(private router: Router, private auth: AuthService) {}
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		public auth: AuthService,
+		public _snackBar: MatSnackBar
+	) {}
 
 	loginForm: FormGroup
 	hidePassword = true
+	submitted = false
 
 	ngOnInit(): void {
+		this.route.queryParams.subscribe((params: Params) => {
+			if (params['loginAgain']) {
+				this._snackBar.open('PLEASE INPUT YOUR LOGIN DATA', 'CLOSE', {
+					duration: 3000,
+					horizontalPosition: 'center',
+					verticalPosition: 'top'
+				})
+			}
+		})
+
 		this.loginForm = new FormGroup({
 			email: new FormControl(null, [Validators.required, Validators.email]),
 			password: new FormControl(null, [
@@ -52,14 +69,22 @@ export class LoginPageComponent implements OnInit {
 			return
 		}
 
+		this.submitted = true
+
 		const user: User = {
 			username: this.loginForm.value.email,
 			password: this.loginForm.value.password
 		}
 
-		this.auth.login(user).subscribe(() => {
-			this.loginForm.reset()
-			this.router.navigate(['/admin', 'dashboard'])
-		})
+		this.auth.login(user).subscribe(
+			() => {
+				this.loginForm.reset()
+				this.router.navigate(['/admin', 'dashboard'])
+				this.submitted = false
+			},
+			() => {
+				this.submitted = false
+			}
+		)
 	}
 }
